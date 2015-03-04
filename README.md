@@ -2,7 +2,7 @@
 
 [![Puppet Forge](http://img.shields.io/puppetforge/v/landcareresearch/ckan.svg)](https://forge.puppetlabs.com/landcaresearch/ckan)
 [![Bitbucket Build Status](http://build.landcareresearch.co.nz/app/rest/builds/buildType%3A%28id%3ALinuxAdmin_PuppetCkan_PuppetCkan%29/statusIcon)](http://build.landcareresearch.co.nz/viewType.html?buildTypeId=LinuxAdmin_PuppetCkan_PuppetCkan&guest=1)
-[![Project Stats](https://www.openhub.net/p/ckan-puppet/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ckan-puppet)
+[![Project Stats](https://www.openhub.net/p/puppet-ckan/widgets/project_thin_badge.gif)](https://www.openhub.net/p/puppet-ckan)
 
 Author: Michael Speth <spethm@landcareresearch.co.nz>
 
