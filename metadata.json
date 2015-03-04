@@ -1,5 +1,5 @@
 {
-  "name": "conzar-ckan",
+  "name": "landcarereserach-ckan",
   "version": "1.0.13",
   "author": "landcareresearch",
   "summary": "Puppet module for deploying CKAN",

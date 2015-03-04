@@ -19,7 +19,7 @@ fixtures:
             repo: 'maestrodev-wget'
             ref: '1.5.6'
         conzar:
-            repo: 'conzar-check_run'
+            repo: 'landcareresearch-check_run'
             ref: '0.2.3'
     symlinks:
         puppet: "#{source_dir}"
