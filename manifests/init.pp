@@ -92,6 +92,13 @@
 # [*text_formats*]
 #   Formats used for the text preview
 #
+# [*setup_postgres_server*]
+#   A boolean to indicate if the postgres server should be created.
+#   If using other puppet module to manage postgres, set it to `false`.
+#
+# [*postgres_host*]
+#   The hostname or ip address of the postgres database.
+#
 # [*postgres_pass*]
 #   The password for the postgres user of the database (admin user).
 #
@@ -158,6 +165,8 @@ class ckan (
     "html htm rdf+xml owl+xml xml n3 n-triples turtle plain atom csv\
  tsv rss txt json",
   $text_formats           = '',
+  $setup_postgres_server  = true,
+  $postgres_host          = 'localhost',
   $postgres_pass          = 'pass',
   $ckan_pass              = 'pass',
   $pg_hba_conf_defaults   = true,

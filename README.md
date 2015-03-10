@@ -152,6 +152,13 @@ Formats used for the text preview
 
 Defaults to not being set in the configuration (since its an empty string)
 
+### `setup_postgres_server`
+A boolean to indicate if the postgres server should be created.
+If using other puppet module to manage postgres, set it to `false`.
+
+### `postgres_host`
+The hostname or ip address of the postgres database.
+
 ### `postgres_pass` 
 The password for the postgres user of the database (admin user).
 
