@@ -24,12 +24,12 @@ class ckan::service {
     hasstatus  => true,
     hasrestart => true,
     require    => Service['jetty'],
+    notify     => Service['nginx']
   }
-  service { 'nginx':
+  ensure_resource('service', 'nginx', {
     ensure     => running,
     enable     => true,
     hasstatus  => true,
-    hasrestart => true,
-    require    => Service['apache2'],
-  }
+    hasrestart => true
+  })
 }

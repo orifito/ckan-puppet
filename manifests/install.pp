@@ -22,9 +22,7 @@ class ckan::install {
   # Install CKAN deps
   $ckan_libs = ['apache2', 'libapache2-mod-wsgi', 'nginx', 'libpq5',
                 'python-pastescript']
-  package { $ckan_libs:
-    ensure => present,
-  }
+  ensure_resource('package', $ckan_libs, { ensure => present })
   exec { 'a2enmod wsgi':
     command => '/usr/sbin/a2enmod wsgi',
     creates => '/etc/apache2/mods-enabled/wsgi.conf',
