@@ -148,10 +148,11 @@ ckan.feeds.author_link =
 ### deprecated in 2.2
 ### but must be used if upgrading from 2.1 to 2.2
 ofs.impl = pairtree
-ofs.storage_dir = <%= scope.lookupvar('ckan::config::ckan_storage_path') %>
+ofs.storage_dir = <%= scope.lookupvar('ckan::config::storage_path') %>
 ## 2.2 config
-ckan.storage_path = <%= scope.lookupvar('ckan::config::ckan_storage_path') %>
+ckan.storage_path = <%= scope.lookupvar('ckan::config::storage_path') %>
 ckan.max_resource_size = <%= scope.lookupvar('ckan::max_resource_size') %>
+ckan.max_image_size = <%= scope.lookupvar('ckan::max_image_size') %>
 
 # Google cloud storage:
 #ofs.impl = google

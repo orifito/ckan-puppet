@@ -76,8 +76,14 @@
 # [*recaptcha_privatekey*]
 #   The private key for recaptcha (by default not set).
 #
+# [*storage_path*]
+#   The directory that contains the storage (ie downloads).
+#
 # [*max_resource_size*]
 #   The maximum in megabytes a resource upload can be.
+#
+# [*max_image_size*]
+#   The maximum in megabytes an image upload can be..
 #
 # [*datapusher_formats*]
 #   File formats that will be pushed to the DataStore by the DataPusher.
@@ -159,7 +165,9 @@ class ckan (
   $custom_imgs            = '',
   $recaptcha_publickey    = '',
   $recaptcha_privatekey   = '',
+  $storage_path           = '/var/lib/ckan/default',
   $max_resource_size      = 100,
+  $max_image_size         = 2,
   $datapusher_formats     = 'csv xls application/csv application/vnd.ms-excel',
   $preview_loadable       =
     "html htm rdf+xml owl+xml xml n3 n-triples turtle plain atom csv\
@@ -192,15 +200,16 @@ class ckan (
     require => Anchor['ckan::begin'],
   }
   class { 'ckan::config':
-    site_url         => $ckan::site_url,
-    site_title       => $ckan::site_title,
-    site_description => $ckan::site_description,
-    site_intro       => $ckan::site_intro,
-    site_about       => $ckan::site_about,
-    site_logo        => $ckan::site_logo,
-    plugins          => $ckan::plugins,
-    notify           => Class['ckan::service'],
-    require          => Class['ckan::install'],
+    site_url          => $ckan::site_url,
+    site_title        => $ckan::site_title,
+    site_description  => $ckan::site_description,
+    site_intro        => $ckan::site_intro,
+    site_about        => $ckan::site_about,
+    site_logo         => $ckan::site_logo,
+    plugins           => $ckan::plugins,
+    storage_path      => $ckan::storage_path,
+    notify            => Class['ckan::service'],
+    require           => Class['ckan::install'],
   }
   class { 'ckan::db_config':
     notify  => Class['ckan::service'],

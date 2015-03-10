@@ -52,7 +52,7 @@
 # [*ckan_css_dir*]
 #   The directory that contains the css files.
 #
-# [*ckan_storage_path*]
+# [*storage_path*]
 #   The directory that contains the storage (ie downloads).
 #
 # [*ckan_plugin_dir*]
@@ -77,6 +77,7 @@ class ckan::config (
   $site_logo          = '',
   $plugins            = 'stats text_preview recline_preview',
   $backup_dir         = '/backup',
+  $storage_path       = '/var/lib/ckan/default'
 ){
 
   # == variables ==
@@ -85,7 +86,6 @@ class ckan::config (
   $ckan_src          = '/usr/lib/ckan/default/src/ckan'
   $ckan_img_dir      = "${ckan_src}/ckan/public/base/images"
   $ckan_css_dir      = "${ckan_src}/ckan/public/base/css"
-  $ckan_storage_path = '/var/lib/ckan/default'
   $ckan_plugin_dir   = "${ckan_etc}/plugins"
   $license_file      = 'license.json'
   $ckan_conf         = "${ckan_default}/production.ini"
@@ -143,7 +143,7 @@ class ckan::config (
       require => File[$ckan_conf],
     }
   }
-  $ckan_data_dir = ['/var/lib/ckan',$ckan_storage_path]
+  $ckan_data_dir = unique(['/var/lib/ckan', $storage_path])
   file {$ckan_data_dir:
     ensure => directory,
     owner  => www-data,

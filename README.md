@@ -133,8 +133,14 @@ The public key for recaptcha (by default not set).
 ### `recaptcha_privatekey`
 The private key for recaptcha (by default not set).
 
+### `storage_path`
+The directory that contains the storage (ie downloads).
+
 ### `max_resource_size` 
 The maximum in megabytes a resource upload can be.
+
+### `max_image_size`
+The maximum in megabytes an image upload can be.
 
 ### `datapusher_formats` 
 File formats that will be pushed to the DataStore by the DataPusher.  
