@@ -5,7 +5,7 @@
 #
 class ckan::install {
 
-  include wget
+  class { 'wget': version => latest}
 
   # Install Jetty
   package { ['openjdk-6-jdk', 'solr-jetty']:

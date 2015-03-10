@@ -11,7 +11,7 @@ class ckan::repos {
 
   # downloads the package from the specified source.
   if $ckan::is_ckan_from_repo == false {
-    include wget
+    class { 'wget': version => latest}
     wget::fetch { 'Download ckan package':
       source      => $ckan::ckan_package_url,
       destination => "${ckan::ckan_package_dir}/${ckan::ckan_package_filename}",
