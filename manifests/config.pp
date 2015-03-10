@@ -99,7 +99,7 @@ class ckan::config (
   # Change default schema to use CKAN schema
   file {'/etc/solr/conf/schema.xml':
     ensure => link,
-    target => "${ckan_src}/ckan/config/solr/schema-2.0.xml",
+    target => "${ckan_src}/ckan/config/solr/schema.xml",
   }
 
   # CKAN configuration
