@@ -1,0 +1,8 @@
+#!/bin/bash
+# backs up the database
+
+TIMESTAMP=`date +%Y%m%d-%H%M%S`
+
+. /usr/lib/ckan/default/bin/activate
+cd /usr/lib/ckan/default/src/ckan
+sudo ckan db dump --config=/etc/ckan/default/production.ini <%= scope.lookupvar('ckan::config::backup_dir') %>/ckan_database_$TIMESTAMP.pg_dump && gzip <%= scope.lookupvar('ckan::config::backup_dir') %>/ckan_database_$TIMESTAMP.pg_dump

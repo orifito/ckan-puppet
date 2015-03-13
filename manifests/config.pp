@@ -182,7 +182,7 @@ class ckan::config (
   }
   file { '/usr/local/bin/ckan_backup.bash':
     ensure  => file,
-    source  => 'puppet:///modules/ckan/ckan_backup.bash',
+    content => template('ckan/ckan_backup.bash.erb'),
     mode    => '0755',
     require => File[$backup_dir],
   }
