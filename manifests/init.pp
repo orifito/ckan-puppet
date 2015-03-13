@@ -108,6 +108,10 @@
 # [*postgres_pass*]
 #   The password for the postgres user of the database (admin user).
 #
+# [*backup_dir*]
+#   The location where backups are stored.
+#   Default: /backup
+#
 # [*ckan_pass*]
 #   The password for the ckan user of the database.
 #
@@ -176,6 +180,7 @@ class ckan (
   $setup_postgres_server  = true,
   $postgres_host          = 'localhost',
   $postgres_pass          = 'pass',
+  $backup_dir             = '/backup',
   $ckan_pass              = 'pass',
   $pg_hba_conf_defaults   = true,
   $install_ckanapi        = false,
@@ -200,16 +205,17 @@ class ckan (
     require => Anchor['ckan::begin'],
   }
   class { 'ckan::config':
-    site_url          => $ckan::site_url,
-    site_title        => $ckan::site_title,
-    site_description  => $ckan::site_description,
-    site_intro        => $ckan::site_intro,
-    site_about        => $ckan::site_about,
-    site_logo         => $ckan::site_logo,
-    plugins           => $ckan::plugins,
-    storage_path      => $ckan::storage_path,
-    notify            => Class['ckan::service'],
-    require           => Class['ckan::install'],
+    site_url         => $ckan::site_url,
+    site_title       => $ckan::site_title,
+    site_description => $ckan::site_description,
+    site_intro       => $ckan::site_intro,
+    site_about       => $ckan::site_about,
+    site_logo        => $ckan::site_logo,
+    plugins          => $ckan::plugins,
+    storage_path     => $ckan::storage_path,
+    backup_dir       => $ckan::backup_dir,
+    notify           => Class['ckan::service'],
+    require          => Class['ckan::install'],
   }
   class { 'ckan::db_config':
     notify  => Class['ckan::service'],

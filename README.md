@@ -168,6 +168,9 @@ The hostname or ip address of the postgres database.
 ### `postgres_pass` 
 The password for the postgres user of the database (admin user).
 
+### `backup_dir`
+The location where backups are stored.
+
 ### `ckan_pass`
 The password for the ckan user of the database.
 
