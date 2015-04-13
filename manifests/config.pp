@@ -186,12 +186,26 @@ class ckan::config (
     mode    => '0755',
     require => File[$backup_dir],
   }
-  cron {'ckan_backup':
-    command => '/usr/local/bin/ckan_backup.bash',
+  cron {'ckan-backup-daily':
+    command => '/usr/local/bin/ckan_backup.bash daily',
     user    => backup,
-    minute  => '0',
+    weekday => '*',
     hour    => '5',
-    weekday => absent, # change to backup database every day at 5 am
+    minute  => '0',
+  }
+  cron {'ckan-backup-weekly':
+    command => '/usr/local/bin/ckan_backup.bash weekly',
+    user    => backup,
+    weekday => '2',
+    hour    => '4',
+    minute  => '0',
+  }
+  cron {'ckan-backup-monthly':
+    command  => '/usr/local/bin/ckan_backup.bash monthly',
+    user     => backup,
+    monthday => '4',
+    hour     => '5',
+    minute   => '0',
   }
   # additional userful scripts
   file { '/usr/local/bin/ckan_create_admin.bash':

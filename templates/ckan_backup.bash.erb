@@ -1,8 +1,18 @@
 #!/bin/bash
 # backs up the database
 
+PERIODICITY=$1
+DIR=<%= scope.lookupvar('ckan::config::backup_dir') %>/$PERIODICITY/
+FILENAME="${DIR}/ckan-db-backup-${TIMESTAMP}.sql.gz"
+
 TIMESTAMP=`date +%Y%m%d-%H%M%S`
+PATH=/usr/bin:/usr/sbin:/bin:/sbin
+set -o pipefail
+
+
+mkdir -p $DIR
+find "${DIR}/" -type f -name "ckan-db-backup-*.sql.gz" -mtime +7 -delete
 
 . /usr/lib/ckan/default/bin/activate
 cd /usr/lib/ckan/default/src/ckan
-sudo ckan db dump --config=/etc/ckan/default/production.ini <%= scope.lookupvar('ckan::config::backup_dir') %>/ckan_database_$TIMESTAMP.pg_dump && gzip <%= scope.lookupvar('ckan::config::backup_dir') %>/ckan_database_$TIMESTAMP.pg_dump
+sudo ckan db dump --config=/etc/ckan/default/production.ini | gzip > $FILENAME
