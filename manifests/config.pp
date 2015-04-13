@@ -190,22 +190,22 @@ class ckan::config (
     command => '/usr/local/bin/ckan_backup.bash daily',
     user    => backup,
     weekday => '*',
-    hour    => '5',
-    minute  => '0',
+    hour    => '2',
+    minute  => '5',
   }
   cron {'ckan-backup-weekly':
     command => '/usr/local/bin/ckan_backup.bash weekly',
     user    => backup,
     weekday => '2',
-    hour    => '4',
-    minute  => '0',
+    hour    => '2',
+    minute  => '10',
   }
   cron {'ckan-backup-monthly':
     command  => '/usr/local/bin/ckan_backup.bash monthly',
     user     => backup,
-    monthday => '4',
-    hour     => '5',
-    minute   => '0',
+    monthday => '2',
+    hour     => '2',
+    minute   => '20',
   }
   # additional userful scripts
   file { '/usr/local/bin/ckan_create_admin.bash':
