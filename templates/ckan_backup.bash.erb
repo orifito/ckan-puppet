@@ -3,9 +3,9 @@
 
 PERIODICITY=$1
 DIR=<%= scope.lookupvar('ckan::config::backup_dir') %>/$PERIODICITY/
+TIMESTAMP=`date +%Y%m%d-%H%M%S`
 FILENAME="${DIR}/ckan-db-backup-${TIMESTAMP}.sql.gz"
 
-TIMESTAMP=`date +%Y%m%d-%H%M%S`
 PATH=/usr/bin:/usr/sbin:/bin:/sbin
 set -o pipefail
 
