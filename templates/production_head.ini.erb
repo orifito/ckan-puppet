@@ -175,9 +175,9 @@ ckan.max_image_size = <%= scope.lookupvar('ckan::max_image_size') %>
 
 ## Email settings
 
-email_to = you@yourdomain.com
-error_email_from = paste@localhost
-smtp.server = localhost
+email_to = <%= scope.lookupvar('ckan::config::email_to') %>
+error_email_from = <%= scope.lookupvar('ckan::config::email_from') %>
+smtp.server = <%= scope.lookupvar('ckan::config::smtp_server') %>
 smtp.starttls = False
 #smtp.user = your_username@gmail.com
 #smtp.password = your_password

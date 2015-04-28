@@ -55,6 +55,15 @@
 # [*storage_path*]
 #   The directory that contains the storage (ie downloads).
 #
+# [*email_to*]
+#   This controls where the error messages will be sent to.
+#
+# [*err_email_from*]
+#   This controls from which email the error messages will come from.
+#
+# [*smtp_server*]
+#   The SMTP server to connect to when sending emails with optional port.
+#
 # [*ckan_plugin_dir*]
 #   The directory that contains files that builds the plugins entry in the
 #   production ini file
@@ -77,7 +86,10 @@ class ckan::config (
   $site_logo          = '',
   $plugins            = 'stats text_preview recline_preview',
   $backup_dir         = '/backup',
-  $storage_path       = '/var/lib/ckan/default'
+  $storage_path       = '/var/lib/ckan/default',
+  $email_to           = '',
+  $err_email_from     = '',
+  $smtp_server        = ''
 ){
 
   # == variables ==

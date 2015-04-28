@@ -112,6 +112,15 @@
 #   The location where backups are stored.
 #   Default: /backup
 #
+# [*email_to*]
+#   This controls where the error messages will be sent to.
+#
+# [*err_email_from*]
+#   This controls from which email the error messages will come from.
+#
+# [*smtp_server*]
+#   The SMTP server to connect to when sending emails with optional port.
+#
 # [*ckan_pass*]
 #   The password for the ckan user of the database.
 #
@@ -181,6 +190,9 @@ class ckan (
   $postgres_host          = 'localhost',
   $postgres_pass          = 'pass',
   $backup_dir             = '/backup',
+  $email_to               = '',
+  $err_email_from         = '',
+  $smtp_server            = '',
   $ckan_pass              = 'pass',
   $pg_hba_conf_defaults   = true,
   $install_ckanapi        = false,
@@ -214,6 +226,9 @@ class ckan (
     plugins          => $ckan::plugins,
     storage_path     => $ckan::storage_path,
     backup_dir       => $ckan::backup_dir,
+    email_to         => $ckan::email_to,
+    err_email_from   => $ckan::err_email_from,
+    smpt_server      => $ckan::smtp_server,
     notify           => Class['ckan::service'],
     require          => Class['ckan::install'],
   }

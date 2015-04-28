@@ -171,6 +171,15 @@ The password for the postgres user of the database (admin user).
 ### `backup_dir`
 The location where backups are stored.
 
+### `email_to`
+This controls where the error messages will be sent to.
+
+### `err_email_from`
+This controls from which email the error messages will come from.
+
+### `smtp_server`
+The SMTP server to connect to when sending emails with optional port.
+
 ### `ckan_pass`
 The password for the ckan user of the database.
 
