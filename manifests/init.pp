@@ -228,7 +228,7 @@ class ckan (
     backup_dir       => $ckan::backup_dir,
     email_to         => $ckan::email_to,
     err_email_from   => $ckan::err_email_from,
-    smpt_server      => $ckan::smtp_server,
+    smtp_server      => $ckan::smtp_server,
     notify           => Class['ckan::service'],
     require          => Class['ckan::install'],
   }
