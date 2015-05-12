@@ -146,15 +146,6 @@ class ckan::config (
     require => File["${ckan_etc}/plugins"],
   }
 
-  # add the logo but its set via the web ui and also set via production.ini
-  # however, I'm not certain that the production.ini has any effect...
-  if $site_logo != '' {
-    file {"${ckan_img_dir}/site_logo.png":
-      ensure  => file,
-      source  => $site_logo,
-      require => File[$ckan_conf],
-    }
-  }
   $ckan_data_dir = unique(['/var/lib/ckan', $storage_path])
   file {$ckan_data_dir:
     ensure => directory,

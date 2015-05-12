@@ -95,7 +95,7 @@ ckan.site_title = <%= @site_title %>
 #ckan.site_logo = /images/lcr_logo_white_sm.png
 # only set logo if its been set
 <% if @site_logo != "" %>
-ckan.site_logo = /base/images/site_logo.png
+ckan.site_logo = <%= @site_logo %>
 <% end %>
 ckan.site_description = <%= @site_description %>
 ckan.site_intro_text = <%= @site_intro %>
