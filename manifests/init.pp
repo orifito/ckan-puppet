@@ -59,6 +59,10 @@
 # [*ckan_package_filename*]
 #   The filename of the ckan package.
 #
+# [*extra_public_paths*]
+#   Specify where CKAN should look for additional files such as HTML, CSS,
+#   script and PNG.
+#
 # [*custom_css*]
 #   The source to a css file used for the ckan site.
 #   This replaces the default main.css.  Should be specified as
@@ -174,6 +178,7 @@ class ckan (
   $is_ckan_from_repo      = true,
   $ckan_package_url       = '',
   $ckan_package_filename  = '',
+  $extra_public_paths     = '',
   $custom_css             = 'main.css',
   $custom_imgs            = '',
   $recaptcha_publickey    = '',

@@ -89,7 +89,7 @@ ckan.plugins = <%= @plugins %>
 <% end %>
 
 ## Front-End Settings
-extra_public_paths = /var/local/ckan
+extra_public_paths = <%= scope.lookupvar('ckan::extra_public_paths') %>
 ckan.site_title = <%= @site_title %>
 #ckan.site_logo = /base/images/ckan-logo.png
 #ckan.site_logo = /images/lcr_logo_white_sm.png

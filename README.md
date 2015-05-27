@@ -44,7 +44,7 @@ The parameters listed require declaring.
 #### `site_url`
 The url for the ckan site.
 
-#### `param site_title`
+#### `site_title`
 The title of the web site. 
 
 ### `site_description`
@@ -111,6 +111,10 @@ Note, this is using dpkg so deb/ubuntu only.
 
 ### `ckan_package_filename` 
 The filename of the ckan package.
+
+### `extra_public_paths`
+Specify where CKAN should look for additional files such as HTML, CSS,
+script and PNG
 
 ### `custom_css`
 The source to a css file used for the ckan site.  This replaces
